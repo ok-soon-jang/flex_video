@@ -8,66 +8,173 @@ main {
    display: flex;
 
    header {
-      width: 400px;
+      width: 20%;
       height: 100%;
-      padding: 50px;
+      padding: 10vh 5vw;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       align-content: space-between;
 
-      .logo {
+
+      h1 {
+         color: #fff;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         align-content: center;
 
          i {
-            font-size: 70px;
+            font-size: 5vw;
             color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
          }
 
-         h1 {
-            font-size: 16px;
-            color: #fff;
+         span {
+            width: 100%;
+            text-align: center;
+            font: normal 0.8vw/1 "arial";
          }
       }
 
       p {
-         font: normal 12px/1 "arial";
-         color: #fff;
+         font: normal 11px/1.1 "arial";
+         color: #888;
+         text-align: center;
       }
    }
 
    section {
-      width: calc(100% - 400px);
+      width: 80%;
+      height: 100%;
       display: flex;
-      padding: 30px;
+      padding-top: 10vh;
 
       article {
-         width: 25%;
+         flex: 1;
          height: 100%;
-         margin-top: 150px;
-         padding: 20px;
+         transition: .5s;
+         position: relative;
 
-         .txt {
-            h2 {
-               font: bold 26px/1 "arial";
-               color: #aaa;
-               margin-bottom: 20px;
+         &::before {
+            content: '';
+            width: 80%;
+            height: 95%;
+            position: absolute;
+            top: 0px;
+            left: -100px;
+            opacity: 0;
+            background-color: #444;
+            box-shadow: 10px 10px 20px rgba(0,0,0,.1);
+            transition: 1s;
+         }
+
+         .inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            padding: 50px 30px 100px;
+
+            .txt {
+               padding-top: 90px;
+               transition: 1s;
+
+               h2 {
+                  font: bold 26px/1 "arial";
+                  color: #aaa;
+                  margin-bottom: 40px;
+                  transition: .5s;
+
+                  &::after {
+                     content: '';
+                     display: block;
+                     background-color: #777;
+                     width: 40px;
+                     height: 2px;
+                     margin-top: 20px;
+                     transition: 1.5s;
+                  }
+               }
+               
+               p {
+                  font: normal 14px/1.4 "arial";
+                  color: #aaa;
+               }
             }
-            p {
-               font: normal 14px/1.4 "arial";
-               color: #aaa;
-               margin-bottom: 20px;
+            figure {
+               width: 100%;
+               height: 15vh;
+               overflow: hidden;
+               position: relative;
+               top: 0px;
+               transition: .5s;
+               box-shadow: 10px 10px 20px rgba(0,0,0,.1);
+               filter: saturate(0.2);
+   
+               video {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+               }
             }
          }
 
-         figure {
-            width: 100%;
-            height: auto;
-            margin-top : 160px;
+         &:hover {
+            flex: 1.3;
 
-            video {
-               width: 100%;
-               height: 100%;
-               object-fit: cover;
+            &::before {
+               left: 0px;
+               opacity: 1;
+            }
+
+            .inner {
+
+               .txt {
+                  padding-top: 20px;
+
+                  h2 {
+                     font: normal 2vw/1 'Alergreya Sans SC';
+                     color: #fff;
+                     font-size: 5vw;
+
+                     &::after {
+                        width: 120px;
+                        background-color: orange;
+                     }
+                  }
+                  p {
+                     font: 14px/1.4 "arial";
+                     color: #777;
+                  }
+               }
+
+               figure {
+                  height: 20vh;
+                  top: 25px;
+                  filter: saturate(1.2);
+               }
+            }
+         }         
+      }
+   }
+
+   nav {
+      position: absolute;
+      top: 4vh;
+      right: 5vw;
+
+      ul {
+         display: flex;
+
+         li {
+            margin: 15px;
+
+            a {
+               font-size: 18px;
+               color: #bbb;
             }
          }
       }
